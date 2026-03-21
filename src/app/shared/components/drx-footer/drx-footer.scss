@@ -1,0 +1,18 @@
+.drx-footer-container {
+  background-color: rgba(27, 37, 60, 0.2);
+  background-blend-mode: lighten;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__content{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-around;
+    width: 100%;
+    & .address{
+      color: var(--ex-gray-scale-700);
+    }
+  }
+}
