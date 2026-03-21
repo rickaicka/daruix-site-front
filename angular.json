@@ -38,7 +38,9 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/styles"]
-            }
+            },
+            "outputPath": "dist/daruix-site-front",
+            "baseHref": "/daruix-site-front/"
           },
           "configurations": {
             "production": {
