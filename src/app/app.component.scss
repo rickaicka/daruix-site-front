@@ -1,0 +1,12 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+.container-pages {
+  flex: 1;
+  padding-top: 100px;
+  min-height: calc(2150 / 1080 * 100vh);
+}

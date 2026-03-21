@@ -55,6 +55,7 @@
   --ex-green-scale-200: #E9FAEF;
   --ex-green-scale-100: #F4FDF7;
 
+  --ex-red-scale-700: #a60220;
   --ex-red-scale-600: #B71F3B;
   --ex-red-scale-500: #DF2648;
   --ex-red-scale-400: #E9677F;
@@ -78,6 +79,7 @@ $sizes:(
   'x':20,
   'xm':24,
   'xxm':32,
+  'xxg':40,
 );
 
 $small-screen: 300px;
@@ -107,6 +109,14 @@ $status-order-text: (
     font-optical-sizing: auto;
     font-weight: 500;
     font-size: $size+px;
+  }
+
+  .gothic-#{$name}{
+    font-weight: 200;
+    font-size: $size+px;
+    font-family: "Science Gothic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
 }
 
@@ -148,7 +158,11 @@ $i: 1;
 }
 
 .bold-font{
-  font-weight: bold;
+  font-weight: 400;
+}
+
+.bolder-font{
+  font-weight: 600;
 }
 
 .divider{
@@ -173,3 +187,15 @@ $breakpoint-tablet: 1024px; // tablets médios
 $breakpoint-desktop: 1280px; // notebooks comuns
 $breakpoint-desktop-lg: 1440px; // monitores grandes
 $breakpoint-ultra: 1920px;  // telas Full HD e maiores
+
+.btn-primary{
+  background: var(--drx-red-base);
+  color: var(--ex-pure-white);
+  border-radius: 5px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  &:hover{
+    background: var(--ex-red-scale-700);
+  }
+}
