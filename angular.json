@@ -23,12 +23,22 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/styles",
+                "output": "styles"
               }
             ],
             "styles": [
-              "src/styles.scss"
-            ]
+              "src/global.scss",
+              "src/theme/variables.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/styles"]
+            }
           },
           "configurations": {
             "production": {
@@ -87,5 +97,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

@@ -1,0 +1,61 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+body{
+  background-color: var(--drx-gray-base);
+}
+
+.ion-page{
+  overflow: auto!important;
+}
+
+
+.mat-mdc-form-field-flex{
+  height: 40px!important;
+}
+.mdc-floating-label{
+  height: 40px!important;
+
+}
+.mat-mdc-form-field-infix{
+  height: 40px!important;
+  padding: 0 !important;
+  display: flex!important;
+  align-items: center!important;
+}
+.mat-mdc-floating-label{
+  display: flex;
+  align-items: center;
+}
+.mat-mdc-form-field-bottom-align{
+  display:none;
+}
+
+ion-header,
+ion-toolbar {
+  padding-top: env(safe-area-inset-top);
+  box-sizing: border-box;
+}
+ion-content {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+ion-select::part(label){
+  font-family: "Quicksand", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+}
+
+ion-select::part(text){
+  font-family: "Quicksand", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 700 !important;
+  font-size: 17px !important;
+}
+
+
+.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic{
+  stroke: var(--drx-red-base) !important;
+}
