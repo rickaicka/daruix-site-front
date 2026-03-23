@@ -1,5 +1,5 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {HomeService} from '../../../features/home/home.service';
+import {HomeService} from '../../../features/home/services/home.service';
 
 @Component({
   selector: 'app-drx-footer',

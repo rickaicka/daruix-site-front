@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {DrxDividerComponent} from '../../../shared/components/drx-divider/drx-divider.component';
+import {SharedModule} from '../../../shared/shared-module';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SharedModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })

@@ -44,5 +44,14 @@
     }
   }
 }
+.blur-nav{
+  width: 100%;
+  height: 15px;
+  background-color: var(--ex-gray-scale-700);
+  position: fixed;
+  z-index: 1;
+  margin-top: 88px;
+  filter: blur(10px);
+}
 
 

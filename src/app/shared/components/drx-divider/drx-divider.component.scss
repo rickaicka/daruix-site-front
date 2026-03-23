@@ -1,0 +1,12 @@
+.divider-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__container{
+    width: 120px;
+    height: 8px;
+    background-color: var(--drx-red-base);
+    border-radius: 10px;
+  }
+}
