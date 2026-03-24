@@ -18,6 +18,7 @@
   --ex-gray-scale-100: #FCFCFC;
 
   --ex-neutral-scale-600: #1B253C;
+  --ex-neutral-scale-600-rgb: 27, 37, 60;
   --ex-neutral-scale-500: #202C46;
   --ex-neutral-scale-400: #4D566B;
   --ex-neutral-scale-300: #9096A2;
@@ -186,13 +187,13 @@ input:focus, textarea:focus, select:focus{
   border: 0 none;
 }
 
-$breakpoint-micro: 240px;   // telas minúsculas (smartwatches, celulares antigos)
-$breakpoint-mobile: 480px;  // celulares menores
-$breakpoint-mobile-lg: 768px; // celulares grandes / tablets pequenos
-$breakpoint-tablet: 1024px; // tablets médios
-$breakpoint-desktop: 1280px; // notebooks comuns
-$breakpoint-desktop-lg: 1440px; // monitores grandes
-$breakpoint-ultra: 1920px;  // telas Full HD e maiores
+$breakpoint-micro: 240px;
+$breakpoint-mobile: 480px;
+$breakpoint-mobile-lg: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1280px;
+$breakpoint-desktop-lg: 1440px;
+$breakpoint-ultra: 1920px;
 
 .btn-primary{
   background: var(--drx-red-base);
