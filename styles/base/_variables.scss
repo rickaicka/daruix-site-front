@@ -85,6 +85,13 @@ $sizes:(
   'xxgll':60,
 );
 
+$sizes-types:(
+  'lg':600,
+);
+$sizes-types-img:(
+  'lg':310,
+);
+
 $small-screen: 300px;
 $medium: 900px;
 
@@ -122,7 +129,19 @@ $status-order-text: (
     font-style: normal;
   }
 }
-
+@each $name, $size in $sizes-types{
+  .type{
+    &__#{$name}{
+      width: $size+px !important;
+      aspect-ratio: 16 / 9;
+    }
+  }
+}
+@each $nametype, $sizetype in $sizes-types-img{
+  .img-type.size-#{$nametype}{
+    height:$sizetype+px !important ;
+  }
+}
 
 $i: 1;
 @each $status, $color in $status-order{
@@ -204,5 +223,19 @@ $breakpoint-ultra: 1920px;
   cursor: pointer;
   &:hover{
     background: var(--ex-red-scale-700);
+    transition: all 0.3s ease-in-out;
+  }
+}
+.btn-secondary{
+  background: var(--ex-neutral-scale-200);
+  color: var(--ex-gray-scale-600);
+  border-radius: 5px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  &:hover{
+    background: var(--ex-neutral-scale-300);
+    color: var(--ex-gray-scale-700);
+    transition: all 0.3s ease-in-out;
   }
 }
