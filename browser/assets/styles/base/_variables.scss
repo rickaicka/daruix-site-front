@@ -80,6 +80,8 @@ $sizes:(
   'xm':24,
   'xxm':32,
   'xxg':40,
+  'xxgl':50,
+  'xxgll':60,
 );
 
 $small-screen: 300px;
@@ -163,6 +165,10 @@ $i: 1;
 
 .bolder-font{
   font-weight: 600;
+}
+
+.text-align-center{
+  text-align: center;
 }
 
 .divider{
