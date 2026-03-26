@@ -7,6 +7,11 @@ export const routes: Routes = [
       import('./features/home/pages/home.component').then(m => m.HomeComponent),
   },
   {
+    path: 'servicos',
+    loadComponent: () =>
+      import('./features/projects/pages/projects.component').then(m => m.ProjectsComponent),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

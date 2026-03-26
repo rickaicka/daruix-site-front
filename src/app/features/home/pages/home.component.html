@@ -13,69 +13,27 @@
     <div class="opacity_text"></div>
   </article>
   <article class="home-section__services">
+    <app-drx-divider></app-drx-divider>
     <h2 class="gothic-xxm bold-font">Serviços</h2>
     <div class="home-section__services__types">
-      <div class="type">
-        <ul>
-          <li>
-            <div class="img-type">
-              <a href="">
-                <img src="https://daruix.com.br/_img/construcao/varejo/ricoy/rk17_1.png"  alt="Projeto de construção Ricoy">
-              </a>
-            </div>
-          </li>
-          <li>
-            <h3 class="gothic-xm bold-font">Construção</h3>
-          </li>
-          <li>
-            <p class="gothic-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl sit amet convallis semper, nunc nisl aliquam nisl, eu iaculis nunc nisl sit amet nunc.</p>
-          </li>
-          <li>
-            <a href="#" class="gothic-m bold-font">Ver mais</a>
-          </li>
-        </ul>
 
-      </div>
-      <div class="type">
-        <ul>
-          <li>
-            <div class="img-type">
-              <a href="">
-                <img src="https://daruix.com.br/_img/construcao/varejo/ricoy/rk17_1.png" alt="home_img">
-              </a>
-            </div>
-          </li>
-          <li>
-            <h3 class="gothic-xm bold-font">Estruturas</h3>
-          </li>
-          <li>
-            <p class="gothic-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl sit amet convallis semper, nunc nisl aliquam nisl, eu iaculis nunc nisl sit amet nunc.</p>
-          </li>
-          <li>
-            <a href="#" class="gothic-m bold-font">Ver mais</a>
-          </li>
-        </ul>
-      </div>
-      <div class="type">
-        <ul>
-          <li>
-            <div class="img-type">
-              <a href="">
-                <img src="https://daruix.com.br/_img/construcao/varejo/ricoy/rk17_1.png" alt="home_img">
-              </a>
-            </div>
-          </li>
-          <li>
-            <h3 class="gothic-xm bold-font">Arquitetura</h3>
-          </li>
-          <li>
-            <p class="gothic-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl sit amet convallis semper, nunc nisl aliquam nisl, eu iaculis nunc nisl sit amet nunc.</p>
-          </li>
-          <li>
-            <a href="#" class="gothic-m bold-font">Ver mais</a>
-          </li>
-        </ul>
-      </div>
+      <app-drx-section-item
+        [typeTitle]="'Construção'"
+        [typeDesc]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan tempus massa, ' +
+             'at iaculis diam eleifend eu. Vestibulum magna tortor, euismod eu blandit nec, ' +
+              'fringilla non sapien. Suspendisse interdum urna sit amet bibendum congue. '"></app-drx-section-item>
+
+      <app-drx-section-item
+        [typeTitle]="'Estruturas'"
+        [typeDesc]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan tempus massa, ' +
+             'at iaculis diam eleifend eu. Vestibulum magna tortor, euismod eu blandit nec, ' +
+              'fringilla non sapien. Suspendisse interdum urna sit amet bibendum congue. '"></app-drx-section-item>
+
+      <app-drx-section-item
+        [typeTitle]="'Arquitetura'"
+        [typeDesc]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan tempus massa, ' +
+             'at iaculis diam eleifend eu. Vestibulum magna tortor, euismod eu blandit nec, ' +
+              'fringilla non sapien. Suspendisse interdum urna sit amet bibendum congue. '"></app-drx-section-item>
     </div>
   </article>
   <article class="home-section__contact">

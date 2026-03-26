@@ -66,7 +66,16 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "gh-pages": {
+              "outputPath": "dist/daruix-site-front",
+              "baseHref": "/daruix-site-front/",
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractLicenses": true
             }
+
           },
           "defaultConfiguration": "production"
         },

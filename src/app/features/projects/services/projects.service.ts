@@ -5,12 +5,12 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
+export class ProjectsService {
   constructor(private httpClient: HttpClient) { }
 
   private readonly baseUrl = 'http://localhost:8000/api';
 
-  getCompanies(): Observable<any> {
-    return this.httpClient.get<any>(`${this.baseUrl}/empresas`);
+  getServices(): Observable<any> {
+    return this.httpClient.get<any>(`${this.baseUrl}/servicos`);
   }
 }

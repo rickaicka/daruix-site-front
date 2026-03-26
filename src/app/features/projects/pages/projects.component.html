@@ -1,0 +1,35 @@
+<section class="projects-section">
+  <article class="projects-section__container">
+    <div class="projects-section__container__top">
+      <h1 class="gothic-xxgll bold-font">Serviços</h1>
+      <ul>
+        @for (service of servicesList; track service.id) {
+            <li>
+              <button
+                class="btn-secondary gothic-m bold-font"
+                (click)="serviceTypeActive(service)"
+                [ngClass]="{'active-btn': activeServiceClick === service?.id}">
+                {{ service?.nome }}
+              </button>
+            </li>
+          }
+      </ul>
+    </div>
+
+    <div class="projects-section__container__categories">
+      <ul>
+        @for (subService of activeService?.subservicos; track subService.id) {
+          <li>
+            <app-drx-section-item
+              [isBtn]="true"
+              [sizeBtn]="'m'"
+              [sizeType]="'lg'"
+              [typeTitle]="subService?.nome"
+              [typeTextLink]="'Acessar'"
+            ></app-drx-section-item>
+          </li>
+        }
+      </ul>
+    </div>
+  </article>
+</section>

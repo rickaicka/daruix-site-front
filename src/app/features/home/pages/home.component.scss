@@ -32,8 +32,8 @@
     & .container-text {
       width: 35%;
       position: relative;
+      margin-left: 10vw;
       z-index: 1;
-
       & h1 {
         font-weight: bolder;
         color: var(--ex-pure-white);
@@ -68,10 +68,12 @@
   &__services{
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
-    padding-top: 64px;
-    padding-left: 32px;
+    padding-top: 48px;
+    padding-bottom: 48px;
     & h2{
       color: var(--drx-red-base);
+      margin-left: 11vw;
+      margin-top: 40px;
     }
     &__types{
       display: flex;
@@ -158,7 +160,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-      //teste
         & ul{
           display: block;
           gap: 16px;

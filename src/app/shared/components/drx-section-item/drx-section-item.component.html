@@ -1,0 +1,27 @@
+<div class="type type__{{sizeType}}">
+  <ul>
+    <li>
+      <div class="img-type size-{{sizeType}}">
+        <a href="">
+          <img src="https://daruix.com.br/_img/construcao/varejo/ricoy/rk17_1.png" alt="home_img">
+        </a>
+      </div>
+    </li>
+    <li>
+      <h3 class="gothic-xm bold-font padding-{{sizeType}}">{{typeTitle}}</h3>
+    </li>
+    <li>
+      <p class="quicksand-m padding-{{sizeType}}">{{typeDesc}}</p>
+    </li>
+    <li class="padding-{{sizeType}}">
+      @if (!isBtn) {
+        <div>
+          <a href="#" class="gothic-m bold-font" >{{typeTextLink}}</a>
+        </div>
+      } @else {
+        <button class="btn-primary gothic-{{sizeBtn}} bold-font">{{typeTextLink}}</button>
+      }
+
+    </li>
+  </ul>
+</div>
