@@ -91,6 +91,9 @@ $sizes-types:(
 $sizes-types-img:(
   'lg':310,
 );
+$sizes-types-padding:(
+  'lg':24,
+);
 
 $small-screen: 300px;
 $medium: 900px;
@@ -140,6 +143,11 @@ $status-order-text: (
 @each $nametype, $sizetype in $sizes-types-img{
   .img-type.size-#{$nametype}{
     height:$sizetype+px !important ;
+  }
+}
+@each $namepadding, $padding in $sizes-types-padding{
+  .padding-#{$namepadding}{
+      padding: 8px $padding+px 0 !important;
   }
 }
 
@@ -223,7 +231,19 @@ $breakpoint-ultra: 1920px;
   cursor: pointer;
   &:hover{
     background: var(--ex-red-scale-700);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out !important;
+  }
+}
+.active-btn{
+  background: var(--drx-red-base) !important;
+  color: var(--ex-pure-white) !important;
+  border-radius: 5px !important;
+  padding: 12px 24px !important;
+  border: none !important;
+  cursor: pointer !important;
+  &:hover{
+    background: var(--ex-red-scale-700) !important;
+    transition: all 0.3s ease-in-out !important;
   }
 }
 .btn-secondary{
