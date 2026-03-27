@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {environment} from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +9,10 @@ import {Observable} from 'rxjs';
 export class HomeService {
   constructor(private httpClient: HttpClient) { }
 
-  private readonly baseUrl = 'http://localhost:8000/api';
+
+  env = environment
 
   getCompanies(): Observable<any> {
-    return this.httpClient.get<any>(`${this.baseUrl}/empresas`);
+    return this.httpClient.get<any>(`${this.env.API_URL}/empresas`);
   }
 }
