@@ -62,7 +62,7 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
         ...projeto,
         imagens: projeto.imagens.map((img: any) => ({
           ...img,
-          imagem_url: this.env.URL_BASE + img.imagem_url
+          imagem_url: img.imagem_url
         }))
       }));
 

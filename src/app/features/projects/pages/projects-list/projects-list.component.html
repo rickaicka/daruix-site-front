@@ -63,8 +63,8 @@
                     @if(project.imagens?.length){
                       <div class="project-gallery gallery-preview">
                         <a
+                          class="gallery-preview__main"
                           [href]="project.imagens[0].imagem_url"
-                          target="_blank"
                           [attr.data-pswp-width]="1600"
                           [attr.data-pswp-height]="900">
 
@@ -72,13 +72,14 @@
                             <svg lucideImage class="icon-svg"></svg>
                             <p class="quicksand-sm">Clique aqui para ver mais imagens</p>
                           </div>
+
                           <img [src]="project.imagens[0].imagem_url" alt="">
                         </a>
+
                         @for(img of project.imagens.slice(1); track img.id){
                           <a
                             class="hidden-link"
                             [href]="img.imagem_url"
-                            target="_blank"
                             [attr.data-pswp-width]="1600"
                             [attr.data-pswp-height]="900">
                           </a>
