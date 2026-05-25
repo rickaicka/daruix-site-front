@@ -3,11 +3,15 @@ export interface IServico{
   nome: string,
   descricao: string,
   ordem: number,
-  subservicos: Array<SubServico>
+  subservicos: Array<SubServico>,
 }
 
 export type SubServico = {
   id: number,
-  nome: string,
-  ordem: number
+  segmento: string,
+  ordem: number,
+  segmento_slug: string,
+  servico: string,
+  servico_slug: string,
+  capa: string
 }

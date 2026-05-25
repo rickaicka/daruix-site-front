@@ -18,4 +18,5 @@ export class DrxSectionItemComponent {
   @Input() typeTitle: string | undefined = '';
   @Input() typeDesc: string | undefined = '';
   @Input() typeTextLink: string | undefined = 'Ver mais';
+  @Input() imgFace: any | undefined = '';
 }

@@ -1,0 +1,26 @@
+<section class="clients-list-section">
+  <div class="clients-list-section__container">
+    <header class="clients-list-section__container__top">
+      <h1 class="gothic-xxgll bold-font">Clientes</h1>
+    </header>
+    <div class="clients-list-section__container__list-container">
+      <nav class="clients-list">
+        <div class="top-lists">
+          <svg lucideUsers></svg>
+          <p class="gothic-x bold-font">
+            Clientes
+          </p>
+        </div>
+        <div class="divider"></div>
+        <ul>
+          @for (client of clientsList; track client.id){
+            <li class="client-btn btn-primary quicksand-m">
+              <p class="bolder-font">{{client?.nome}}</p>
+              <span> Cliente desde 2020</span>
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>

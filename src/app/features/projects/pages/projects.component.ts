@@ -4,12 +4,15 @@ import {NgClass} from '@angular/common';
 import {ProjectsService} from '../services/projects.service';
 import {Servico} from '../../../shared/models/servico.model';
 import {SubServico} from '../../../shared/interfaces/servico.interface';
+import {ActivatedRoute, Router, RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-projects',
   imports: [
     SharedModule,
-    NgClass
+    NgClass,
+    RouterLink,
+    RouterOutlet
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
@@ -17,6 +20,8 @@ import {SubServico} from '../../../shared/interfaces/servico.interface';
 export class ProjectsComponent implements OnInit{
 
   private projectsService = inject(ProjectsService)
+  private router = inject(Router);
+  private activatedRoute = inject(ActivatedRoute);
   activeServiceClick: number = 1;
   servicesList: Array<Servico> = [];
   subServicesList: Array<SubServico> = [];
@@ -39,5 +44,14 @@ export class ProjectsComponent implements OnInit{
         this.activeService = this.servicesList[0];
       }
     })
+  }
+
+  goToSubService(subServico: SubServico) {
+    this.router.navigate([
+      '/servicos',
+      subServico?.servico_slug,
+      'subservicos',
+      subServico?.segmento_slug,
+    ]);
   }
 }

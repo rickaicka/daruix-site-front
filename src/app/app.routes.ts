@@ -12,6 +12,17 @@ export const routes: Routes = [
       import('./features/projects/pages/projects.component').then(m => m.ProjectsComponent),
   },
   {
+    path: 'servicos/:servico/subservicos/:subservico',
+    loadComponent: () =>
+      import('./features/projects/pages/projects-list/projects-list.component')
+        .then(m => m.ProjectsListComponent),
+  },
+  {
+    path: 'clientes',
+    loadComponent: () =>
+      import('./features/clients/pages/clients.component').then(m => m.ClientsComponent),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

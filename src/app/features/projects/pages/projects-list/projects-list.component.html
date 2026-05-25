@@ -1,0 +1,97 @@
+<section class="projects-list-section">
+  <div class="projects-list-section__container">
+    <header class="projects-list-section__container__top">
+      <a class="wrapper-back-page" [routerLink]="'/servicos'">
+        <span class="material-symbols-outlined">
+          chevron_left
+        </span>
+      </a>
+      <h1 class="gothic-xxgll bold-font">Projetos</h1>
+    </header>
+    <div class="projects-list-section__container__list-container">
+      <nav class="clients-list">
+        <div class="top-lists">
+          <svg lucideUsers></svg>
+          <p class="gothic-x bold-font">
+            Clientes
+          </p>
+        </div>
+        <div class="divider"></div>
+        <ul>
+          @for (client of clientsList; track client.id){
+            <li class="client-btn btn-third quicksand-m"
+                (click)="clientSelect(client)"
+                [ngClass]="{'active-small-btn': activeClienteClick === client?.id}">
+              <p class="bolder-font">{{client?.nome}}</p>
+              <span> Cliente desde 2020</span>
+            </li>
+          }
+        </ul>
+      </nav>
+      <article class="projects-clients-list">
+        <p class="gothic-x bold-font">Projetos</p>
+        <div class="projects-clients-list__container">
+          <ul>
+            @for (project of projectsList; track project.id){
+              <li>
+                <div class="wrapper-project">
+                  <div class="project-content">
+                    <div class="border-left"></div>
+                    <ul>
+                      <li>
+                        <p class="quicksand-sm bolder-font">Projeto</p>
+                        <p class="quicksand-x bolder-font">{{project.nome}}</p>
+                      </li>
+                      <li>
+                        <p class="quicksand-sm bolder-font">
+                          <svg lucideMapPin class="icon-svg"></svg>Endereço</p>
+                        <p class="quicksand-m">{{project.endereco}}</p>
+                      </li>
+                      <li class="last-detail">
+                        <div class="conclusao">
+                          <p class="quicksand-sm bolder-font">
+                            <svg lucideCalendar class="icon-svg"></svg>Conclusão</p>
+                          <p class="quicksand-m">{{project.conclusao | date:'dd/MM/yyyy' }}</p>
+                        </div>
+                        <div class="area">
+                          <p class="quicksand-sm bolder-font">
+                            <svg lucideBuilding2 class="icon-svg"></svg>Área Construída</p>
+                          <p class="quicksand-m">{{project.area}} m²</p>
+                        </div>
+                      </li>
+                    </ul>
+                    @if(project.imagens?.length){
+                      <div class="project-gallery gallery-preview">
+                        <a
+                          [href]="project.imagens[0].imagem_url"
+                          target="_blank"
+                          [attr.data-pswp-width]="1600"
+                          [attr.data-pswp-height]="900">
+
+                          <div class="btn-click-img">
+                            <svg lucideImage class="icon-svg"></svg>
+                            <p class="quicksand-sm">Clique aqui para ver mais imagens</p>
+                          </div>
+                          <img [src]="project.imagens[0].imagem_url" alt="">
+                        </a>
+                        @for(img of project.imagens.slice(1); track img.id){
+                          <a
+                            class="hidden-link"
+                            [href]="img.imagem_url"
+                            target="_blank"
+                            [attr.data-pswp-width]="1600"
+                            [attr.data-pswp-height]="900">
+                          </a>
+                        }
+                      </div>
+                    }
+                  </div>
+                </div>
+              </li>
+            }
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

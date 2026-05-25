@@ -24,8 +24,10 @@
               [isBtn]="true"
               [sizeBtn]="'m'"
               [sizeType]="'lg'"
-              [typeTitle]="subService?.nome"
+              [typeTitle]="subService?.segmento"
               [typeTextLink]="'Acessar'"
+              [imgFace]="subService?.capa"
+              (click)="goToSubService(subService)"
             ></app-drx-section-item>
           </li>
         }
