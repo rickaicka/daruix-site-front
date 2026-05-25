@@ -259,3 +259,28 @@ $breakpoint-ultra: 1920px;
     transition: all 0.3s ease-in-out;
   }
 }
+.btn-third{
+  background: var(--ex-neutral-scale-200);
+  color: var(--ex-gray-scale-600);
+  border-radius: 5px;
+  padding: 4px 16px;
+  border: none;
+  cursor: pointer;
+  &:hover{
+    background: var(--ex-neutral-scale-300);
+    color: var(--ex-gray-scale-700);
+    transition: all 0.3s ease-in-out;
+  }
+}
+.active-small-btn{
+  background: var(--drx-red-base) !important;
+  color: var(--ex-pure-white) !important;
+  border-radius: 5px !important;
+  padding: 4px 16px !important;
+  border: none !important;
+  cursor: pointer !important;
+  &:hover{
+    background: var(--ex-red-scale-700) !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+}
