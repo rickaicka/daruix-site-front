@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "deploy-gh": "ng build --configuration=gh-pages && powershell -Command \"Copy-Item dist/daruix-site-front/browser/index.html dist/daruix-site-front/browser/404.html\" && npx angular-cli-ghpages --dir=dist/daruix-site-front/browser",
+    "deploy-gh": "ng build --configuration=gh-pages && node -e \"const fs=require('fs'); fs.copyFileSync('dist/daruix-site-front/browser/index.html','dist/daruix-site-front/browser/404.html')\" && npx angular-cli-ghpages --dir=dist/daruix-site-front/browser",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
