@@ -1,9 +1,7 @@
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import {AfterViewInit, Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {DatePipe, NgClass} from '@angular/common';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import 'photoswipe/style.css';
-
 import { SharedModule } from '../../../../shared/shared-module';
 import { ClienteService } from '../../services/cliente.service';
 import { ICliente } from '../../../../shared/interfaces/cliente.interface';
@@ -18,7 +16,7 @@ import Swal from 'sweetalert2';
   templateUrl: './projects-list.component.html',
   styleUrl: './projects-list.component.scss',
 })
-export class ProjectsListComponent implements OnInit, AfterViewInit {
+export class ProjectsListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private clientsService = inject(ClienteService);
   private activatedRoute = inject(ActivatedRoute);
@@ -29,7 +27,7 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
   activeService?: string;
   activeSubService?: string;
   activeClienteClick = 1;
-
+  private lightbox?: PhotoSwipeLightbox;
   env = environment;
 
   ngOnInit() {}
@@ -39,6 +37,7 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
       this.activeService = params['servico'];
       this.activeSubService = params['subservico'];
       this.getClientes();
+      setTimeout(() => this.initGallery());
     });
   }
 
@@ -80,12 +79,18 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
   }
 
   initGallery() {
-    const lightbox = new PhotoSwipeLightbox({
+    this.lightbox?.destroy();
+
+    this.lightbox = new PhotoSwipeLightbox({
       gallery: '.project-gallery',
       children: 'a',
       pswpModule: () => import('photoswipe')
     });
 
-    lightbox.init();
+    this.lightbox.init();
+  }
+
+  ngOnDestroy() {
+    this.lightbox?.destroy();
   }
 }
