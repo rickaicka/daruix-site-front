@@ -44,34 +44,3 @@
 .swal2-confirm:hover {
   background-color: #a50b0c !important;
 }
-
-
-.gallery-preview__main {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 260px;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.gallery-preview__main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.hidden-link {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.btn-click-img {
-  position: absolute;
-  z-index: 2;
-  left: 12px;
-  bottom: 12px;
-}
