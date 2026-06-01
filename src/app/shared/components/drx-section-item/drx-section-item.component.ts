@@ -1,10 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgIf, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-drx-section-item',
   imports: [
-    NgIf
+    NgIf,
+    NgOptimizedImage
   ],
   templateUrl: './drx-section-item.component.html',
   styleUrl: './drx-section-item.component.scss',

@@ -16,7 +16,7 @@
           @for (client of clientsList; track client.id){
             <li class="client-btn btn-primary quicksand-m">
               <p class="bolder-font">{{client?.nome}}</p>
-              <span> Cliente desde 2020</span>
+              <span> Cliente desde {{ client?.since_date }}</span>
             </li>
           }
         </ul>

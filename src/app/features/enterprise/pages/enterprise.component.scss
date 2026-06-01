@@ -1,0 +1,113 @@
+.enterprise-list-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    position: relative;
+    min-height: 100vh;
+    align-items: flex-start;
+    background: url("https://copilot.microsoft.com/th/id/BCO.0d279e63-e3b3-4c1e-b55a-685c9a3d083c.png") center/cover no-repeat;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(var(--ex-neutral-scale-600-rgb), 0.7);
+      z-index: 0;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    &__top {
+      margin-top: 40px;
+      margin-left: 11vw;
+      width: 100%;
+
+      & h1 {
+        color: var(--ex-pure-white);
+      }
+
+      & ul {
+        margin-top: 24px;
+        display: flex;
+        gap: 16px;
+
+        & li {
+          list-style: none;
+        }
+      }
+
+      & .wrapper-back-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        background-color: var(--drx-red-base);
+        border-radius: 50%;
+        color: var(--ex-pure-white);
+        margin-bottom: 16px;
+        text-decoration: none;
+
+        & span {
+          padding: 8px 16px;
+        }
+      }
+    }
+
+    &__list-container {
+      margin-left: 11vw;
+      width: 77vw;
+      margin-top: 40px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background-color: var(--ex-neutral-scale-50);
+      border-radius: 16px;
+      min-height: 600px;
+      padding: 16px;
+
+      & .enterprise-list {
+        height: 600px;
+        border-radius: 16px;
+        border: 1px solid var(--ex-gray-scale-500);
+        padding: 16px;
+        width: 100%;
+
+        & ul {
+          margin-top: 24px;
+          height: 564px;
+          overflow-y: auto;
+          display: flex;
+          gap: 16px;
+
+          & li {
+            list-style: none;
+            margin-bottom: 8px;
+            height: 25px;
+            & span {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.top-lists{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16px;
+
+  & svg{
+    width: 20px;
+    margin-right: 16px;
+    color: var(--drx-red-base);
+  }
+}

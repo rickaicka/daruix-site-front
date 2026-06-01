@@ -23,7 +23,7 @@
                 (click)="clientSelect(client)"
                 [ngClass]="{'active-small-btn': activeClienteClick === client?.id}">
               <p class="bolder-font">{{client?.nome}}</p>
-              <span> Cliente desde 2020</span>
+              <span> Cliente desde {{ client?.since_date }}</span>
             </li>
           }
         </ul>
