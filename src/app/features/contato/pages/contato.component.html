@@ -1,0 +1,98 @@
+<section class="contato-section">
+  <div class="contato-section__container">
+    <header class="contato-section__container__top">
+      <h1 class="gothic-xxgll bold-font">Contato</h1>
+    </header>
+    <div class="contato-section__container__list-container">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <ul>
+          <li>
+            <label class="quicksand-m" for="name">
+              Nome*:
+            </label>
+
+            <input
+              class="quicksand-m"
+              id="name"
+              type="text"
+              formControlName="name"/>
+
+            @if(name?.invalid && (name?.touched || submitted)){
+              <small class="error-message quicksand-sm">
+                Nome é obrigatório.
+              </small>
+            }
+          </li>
+          <li>
+            <label class="quicksand-m" for="email">
+              E-mail*:
+            </label>
+
+            <input
+              class="quicksand-m"
+              id="email"
+              type="email"
+              formControlName="email"/>
+
+            @if(email?.errors?.['required'] && (email?.touched || submitted)){
+              <small class="error-message quicksand-sm">
+                E-mail é obrigatório.
+              </small>
+            }
+
+            @if(email?.errors?.['email'] && (email?.touched || submitted)){
+              <small class="error-message quicksand-sm">
+                Informe um e-mail válido.
+              </small>
+            }
+          </li>
+          <li>
+            <label class="quicksand-m" for="telefone">
+              Telefone*:
+            </label>
+
+            <input
+              class="quicksand-m"
+              id="telefone"
+              type="text"
+              formControlName="telefone"/>
+
+            @if(telefone?.errors?.['required'] && (telefone?.touched || submitted)){
+              <small class="error-message quicksand-sm">
+                Telefone é obrigatório.
+              </small>
+            }
+
+            @if(telefone?.errors?.['pattern'] && !telefone?.errors?.['required'] && (telefone?.touched || submitted)){
+              <small class="error-message quicksand-sm">
+                Telefone inválido.
+              </small>
+            }
+          </li>
+          <li>
+            <label class="quicksand-m" for="mensagem">
+              Mensagem*:
+            </label>
+
+            <textarea
+              class="quicksand-m"
+              id="mensagem"
+              formControlName="mensagem">
+            </textarea>
+
+            @if(mensagem?.invalid && (mensagem?.touched || submitted)){
+              <small class="error-message quicksand-sm">
+                Mensagem é obrigatória.
+              </small>
+            }
+          </li>
+          <li>
+            <button type="submit" class="btn-primary quicksand-m">
+              Enviar
+            </button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,11 +1,13 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {LucideUsers} from '@lucide/angular';
 import {ClienteService} from '../../projects/services/cliente.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-clients',
   imports: [
-    LucideUsers
+    LucideUsers,
+    DatePipe
   ],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.scss',

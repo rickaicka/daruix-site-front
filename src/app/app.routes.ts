@@ -28,6 +28,11 @@ export const routes: Routes = [
       import('./features/enterprise/pages/enterprise.component').then(m => m.EnterpriseComponent),
   },
   {
+    path: 'contato',
+    loadComponent: () =>
+      import('./features/contato/pages/contato.component').then(m => m.ContatoComponent),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
