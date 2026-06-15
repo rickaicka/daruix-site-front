@@ -1,1 +1,0 @@
-import{a as n}from"./chunk-5AELTQF7.js";import{Hb as i,L as e,P as r}from"./chunk-DIPNCG4Y.js";var o=class t{constructor(a){this.httpClient=a}env=n;getCompanies(){return this.httpClient.get(`${this.env.API_URL}/empresas`)}static \u0275fac=function(p){return new(p||t)(r(i))};static \u0275prov=e({token:t,factory:t.\u0275fac,providedIn:"root"})};export{o as a};
