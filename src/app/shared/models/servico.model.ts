@@ -6,6 +6,7 @@ export class Servico implements IServico {
   nome!: string;
   ordem!: number;
   subservicos!: Array<SubServico>;
+  slug!: string;
 
   constructor(data: IServico) {
     Object.assign(this, data);

@@ -6,7 +6,6 @@
           chevron_left
         </span>
       </a>
-      <h1 class="gothic-xxgll bold-font">Projetos</h1>
     </header>
     <div class="projects-list-section__container__list-container">
       <nav class="clients-list">
@@ -29,66 +28,80 @@
         </ul>
       </nav>
       <article class="projects-clients-list">
-        <p class="gothic-x bold-font">Projetos</p>
+        <p class="gothic-x bold-font">Projetos/Obras</p>
         <div class="projects-clients-list__container">
           <ul>
-            @for (project of projectsList; track project.id){
-              <li>
-                <div class="wrapper-project">
-                  <div class="project-content">
-                    <div class="border-left"></div>
-                    <ul>
-                      <li>
-                        <p class="quicksand-sm bolder-font">Projeto</p>
-                        <p class="quicksand-x bolder-font">{{project.nome}}</p>
-                      </li>
-                      <li>
-                        <p class="quicksand-sm bolder-font">
-                          <svg lucideMapPin class="icon-svg"></svg>Endereço</p>
-                        <p class="quicksand-m">{{project.endereco}}</p>
-                      </li>
-                      <li class="last-detail">
-                        <div class="conclusao">
+            @if (projectsList.length > 0){
+              @for (project of projectsList; track project.id){
+                <li>
+                  <div class="wrapper-project">
+                    <div class="project-content">
+                      <div class="border-left"></div>
+                      <ul>
+                        <li>
+                          <p class="quicksand-sm bolder-font">Obra</p>
+                          <p class="quicksand-x bolder-font">{{project.nome}}</p>
+                        </li>
+                        <li>
                           <p class="quicksand-sm bolder-font">
-                            <svg lucideCalendar class="icon-svg"></svg>Conclusão</p>
-                          <p class="quicksand-m">{{project.conclusao | date:'dd/MM/yyyy' }}</p>
-                        </div>
-                        <div class="area">
-                          <p class="quicksand-sm bolder-font">
-                            <svg lucideBuilding2 class="icon-svg"></svg>Área Construída</p>
-                          <p class="quicksand-m">{{project.area}} m²</p>
-                        </div>
-                      </li>
-                    </ul>
-                    @if(project.imagens?.length){
-                      <div class="project-gallery gallery-preview">
-                        <a
-                          class="gallery-preview__main"
-                          [href]="project.imagens[0].imagem_url"
-                          [attr.data-pswp-width]="1600"
-                          [attr.data-pswp-height]="900">
-
-                          <div class="btn-click-img">
-                            <svg lucideImage class="icon-svg"></svg>
-                            <p class="quicksand-sm">Clique aqui para ver mais imagens</p>
+                            <svg lucideMapPin class="icon-svg"></svg>Endereço</p>
+                          <p class="quicksand-m">{{project.endereco}}</p>
+                        </li>
+                        <li class="last-detail">
+                          <div class="conclusao">
+                            <p class="quicksand-sm bolder-font">
+                              <svg lucideCalendar class="icon-svg"></svg>Conclusão</p>
+                            <p class="quicksand-m">{{project.conclusao | date:'dd/MM/yyyy' }}</p>
                           </div>
-
-                          <img [src]="project.imagens[0].imagem_url" alt="">
-                        </a>
-
-                        @for(img of project.imagens.slice(1); track img.id){
+                          <div class="area">
+                            <p class="quicksand-sm bolder-font">
+                              <svg lucideBuilding2 class="icon-svg"></svg>Área Construída</p>
+                            <p class="quicksand-m">{{project.area}} m²</p>
+                          </div>
+                        </li>
+                      </ul>
+                      @if(project.imagens?.length){
+                        <div class="project-gallery gallery-preview">
                           <a
-                            class="hidden-link"
-                            [href]="img.imagem_url"
+                            class="gallery-preview__main"
+                            [href]="project.imagens[0].imagem_url"
                             [attr.data-pswp-width]="1600"
                             [attr.data-pswp-height]="900">
+
+                            <div class="btn-click-img">
+                              <svg lucideImage class="icon-svg"></svg>
+                              <p class="quicksand-sm">Clique aqui para ver mais imagens</p>
+                            </div>
+
+                            <img [src]="project.imagens[0].imagem_url" alt="">
                           </a>
-                        }
-                      </div>
-                    }
+
+                          @for(img of project.imagens; track img.id){
+                            <a
+                              class="hidden-link"
+                              [href]="img.imagem_url"
+                              [attr.data-pswp-width]="1600"
+                              [attr.data-pswp-height]="900">
+                            </a>
+                          }
+                        </div>
+                      } @else{
+                        <div class="empty-img-container">
+                          <div class="wrapper-empty-img-icon">
+                            <svg lucideImageOff></svg>
+                          </div>
+                          <h2 class="gothic-m bold-font">Nenhuma imagem disponível</h2>
+                        </div>
+                      }
+                    </div>
                   </div>
-                </div>
-              </li>
+                </li>
+              }
+            } @else{
+              <app-drx-empty-response
+                [title]="'Nenhum projeto/obra encontrado'"
+                [description]="'Este cliente ainda não possui projetos ou obras cadastrados para este serviço.'">
+              </app-drx-empty-response>
             }
           </ul>
         </div>

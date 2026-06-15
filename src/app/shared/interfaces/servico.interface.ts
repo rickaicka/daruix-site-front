@@ -1,6 +1,7 @@
 export interface IServico{
   id: number,
   nome: string,
+  slug: string,
   descricao: string,
   ordem: number,
   subservicos: Array<SubServico>,

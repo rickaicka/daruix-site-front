@@ -32,7 +32,12 @@
       h1 {
         color: var(--ex-pure-white);
       }
-
+      ul {
+        margin-top: 24px;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
       .wrapper-back-page {
         display: flex;
         justify-content: center;
@@ -79,7 +84,7 @@
 
       .clients-list {
         width: 300px;
-        height: 600px;
+        min-height: 635px;
         flex-shrink: 0;
         border-radius: 16px;
         border: 1px solid var(--ex-gray-scale-500);
@@ -123,7 +128,6 @@
 
       .projects-clients-list {
         width: 100%;
-        min-width: 0;
         min-height: 600px;
         border-radius: 16px;
         border: 1px solid var(--ex-gray-scale-500);
@@ -190,7 +194,7 @@
 
               > ul {
                 padding: 8px 16px;
-                width: 100%;
+                width: 372px;
                 min-width: 0;
                 box-sizing: border-box;
 
@@ -202,6 +206,30 @@
                     padding-top: 4px;
                     word-break: break-word;
                   }
+                }
+              }
+
+              .empty-img-container{
+                width: 427px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                & .wrapper-empty-img-icon{
+                  > svg{
+
+                    height: 60px;
+                    width: 100%;
+                    align-items: center;
+                    text-align: center;
+                    justify-content: center;
+                    display: flex;
+                    color: var(--ex-neutral-scale-300);
+                  }
+                  margin-bottom: 16px;
+                }
+                & h2{
+                  color: var(--ex-neutral-scale-300)
                 }
               }
 

@@ -86,7 +86,7 @@ $sizes:(
 );
 
 $sizes-types:(
-  'lg':600,
+  'lg':588,
 );
 $sizes-types-img:(
   'lg':310,
@@ -136,7 +136,6 @@ $status-order-text: (
   .type{
     &__#{$name}{
       width: $size+px !important;
-      aspect-ratio: 16 / 9;
     }
   }
 }

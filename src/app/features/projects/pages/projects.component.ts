@@ -4,7 +4,8 @@ import {NgClass} from '@angular/common';
 import {ProjectsService} from '../services/projects.service';
 import {Servico} from '../../../shared/models/servico.model';
 import {SubServico} from '../../../shared/interfaces/servico.interface';
-import {ActivatedRoute, Router, RouterLink, RouterOutlet} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet} from '@angular/router';
+import {filter} from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -26,27 +27,44 @@ export class ProjectsComponent implements OnInit{
   servicesList: Array<Servico> = [];
   subServicesList: Array<SubServico> = [];
   activeService: Servico | undefined;
+  selectedServiceSlug: string | null = null;
+  selectedServiceOrder: number | null = null;
+  selectedServiceTitle: string | null = null;
 
 
-  ngOnInit() {
+  ngOnInit(): void {
+    const state = history.state;
+    this.selectedServiceSlug = state?.slug ?? null;
+    this.selectedServiceOrder = state?.orderService ?? null;
+    this.selectedServiceTitle = state?.title ?? null;
     this.getServices();
   }
 
-  serviceTypeActive(service: Servico) {
-    this.activeServiceClick = service?.id;
-    this.activeService = service;
-  }
-  getServices(){
+  getServices(): void {
     this.projectsService.getServices().subscribe(data => {
       this.servicesList = data.results;
-      if(!this.activeService){
-        this.activeServiceClick = this.servicesList[0].id;
-        this.activeService = this.servicesList[0];
+
+      if (this.selectedServiceSlug) {
+        const serviceFromHome = this.servicesList.find(service =>
+          service.ordem === this.selectedServiceOrder
+        );
+
+        if (serviceFromHome) {
+          this.serviceTypeActive(serviceFromHome);
+          return;
+        }
       }
-    })
+
+      this.serviceTypeActive(this.servicesList[0]);
+    });
   }
 
-  goToSubService(subServico: SubServico) {
+  serviceTypeActive(service: Servico): void {
+    this.activeServiceClick = service.id;
+    this.activeService = service;
+  }
+
+  goToSubService(subServico: SubServico): void {
     this.router.navigate([
       '/servicos',
       subServico?.servico_slug,

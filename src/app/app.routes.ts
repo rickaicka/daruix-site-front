@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: 'servicos',
     loadComponent: () =>
-      import('./features/projects/pages/projects.component').then(m => m.ProjectsComponent),
+      import('./features/projects/pages/projects.component').then(m => m.ProjectsComponent)
   },
   {
     path: 'servicos/:servico/subservicos/:subservico',
