@@ -70,7 +70,7 @@ export class ProjectsListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   getClientes() {
     this.clientsService.getClients().subscribe(clients => {
-      this.clientsList = clients.results;
+      this.clientsList = clients;
     });
   }
 
