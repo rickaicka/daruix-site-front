@@ -55,7 +55,7 @@
       }
 
       @include respond(mobile) {
-        margin-top: 24px;
+        margin-top: 48px;
       }
     }
 
@@ -108,11 +108,12 @@
 
         @include respond(tablet) {
           width: 100%;
-          height: auto;
+          height: 400px;
+          min-height: unset;
+          overflow: scroll;
 
           ul {
-            display: flex;
-            gap: 8px;
+
             height: auto;
             overflow-x: auto;
             overflow-y: hidden;
@@ -120,7 +121,7 @@
 
             li {
               min-width: 180px;
-              margin-bottom: 0;
+              margin-bottom: 8px;
             }
           }
         }

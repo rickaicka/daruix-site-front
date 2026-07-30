@@ -6,7 +6,7 @@
         @for (service of servicesList; track service.id) {
             <li>
               <button
-                class="btn-secondary gothic-m bold-font"
+                class="btn-secondary gothic-sm bold-font"
                 (click)="serviceTypeActive(service)"
                 [ngClass]="{'active-btn': activeServiceClick === service?.id}">
                 {{ service?.nome }}

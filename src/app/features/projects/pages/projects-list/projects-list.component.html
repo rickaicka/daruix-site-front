@@ -60,37 +60,46 @@
                           </div>
                         </li>
                       </ul>
-                      @if(project.imagens?.length){
+                      @if (project.imagens?.length) {
                         <div class="project-gallery gallery-preview">
-                          <a
-                            class="gallery-preview__main"
-                            [href]="project.imagens[0].imagem_url"
-                            [attr.data-pswp-width]="1600"
-                            [attr.data-pswp-height]="900">
-
-                            <div class="btn-click-img">
-                              <svg lucideImage class="icon-svg"></svg>
-                              <p class="quicksand-sm">Clique aqui para ver mais imagens</p>
-                            </div>
-
-                            <img [src]="project.imagens[0].imagem_url" alt="">
-                          </a>
-
-                          @for(img of project.imagens; track img.id){
+                          @for (
+                            img of project.imagens;
+                            track img.id;
+                            let isFirst = $first
+                            ) {
                             <a
-                              class="hidden-link"
+                              [class.gallery-preview__main]="isFirst"
+                              [class.hidden-link]="!isFirst"
                               [href]="img.imagem_url"
                               [attr.data-pswp-width]="1600"
-                              [attr.data-pswp-height]="900">
+                              [attr.data-pswp-height]="900"
+                            >
+                              @if (isFirst) {
+                                <div class="btn-click-img">
+                                  <svg lucideImage class="icon-svg"></svg>
+
+                                  <p class="quicksand-sm">
+                                    Clique aqui para ver mais imagens
+                                  </p>
+                                </div>
+
+                                <img
+                                  [src]="img.imagem_url"
+                                  [alt]="'Imagem da obra ' + project.nome"
+                                >
+                              }
                             </a>
                           }
                         </div>
-                      } @else{
+                      } @else {
                         <div class="empty-img-container">
                           <div class="wrapper-empty-img-icon">
                             <svg lucideImageOff></svg>
                           </div>
-                          <h2 class="gothic-m bold-font">Nenhuma imagem disponível</h2>
+
+                          <h2 class="gothic-m bold-font">
+                            Nenhuma imagem disponível
+                          </h2>
                         </div>
                       }
                     </div>
