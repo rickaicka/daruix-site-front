@@ -17,104 +17,114 @@
         </div>
         <div class="divider"></div>
         <ul>
-          @for (client of clientsList; track client.id){
-            <li class="client-btn btn-third quicksand-m"
-                (click)="clientSelect(client)"
-                [ngClass]="{'active-small-btn': activeClienteClick === client?.id}">
-              <p class="bolder-font">{{client?.nome}}</p>
-              <span> Cliente desde {{ client?.since_date | date: "yyyy" }}</span>
-            </li>
+          @if(clientsList.length > 0){
+            @for (client of clientsList; track client.id){
+              <li class="client-btn btn-third quicksand-m"
+                  (click)="clientSelect(client)"
+                  [ngClass]="{'active-small-btn': activeClienteClick === client?.id}">
+                <p class="bolder-font">{{client?.nome}}</p>
+                <span> Cliente desde {{ client?.since_date | date: "yyyy" }}</span>
+              </li>
+            }
+          } @else{
+            <app-drx-empty-response
+              [title]="'Nenhum Cliente encontrado'"
+              [description]="'Nenhum cliente para esse Serviço'">
+            </app-drx-empty-response>
           }
         </ul>
       </nav>
-      <article class="projects-clients-list">
-        <p class="gothic-x bold-font">Projetos/Obras</p>
-        <div class="projects-clients-list__container">
-          <ul>
-            @if (projectsList.length > 0){
-              @for (project of projectsList; track project.id){
-                <li>
-                  <div class="wrapper-project">
-                    <div class="project-content">
-                      <div class="border-left"></div>
-                      <ul>
-                        <li>
-                          <p class="quicksand-sm bolder-font">Obra</p>
-                          <p class="quicksand-x bolder-font">{{project.nome}}</p>
-                        </li>
-                        <li>
-                          <p class="quicksand-sm bolder-font">
-                            <svg lucideMapPin class="icon-svg"></svg>Endereço</p>
-                          <p class="quicksand-m">{{project.endereco}}</p>
-                        </li>
-                        <li class="last-detail">
-                          <div class="conclusao">
+      @if(clientsList.length > 0){
+
+        <article class="projects-clients-list">
+          <p class="gothic-x bold-font">Projetos/Obras</p>
+          <div class="projects-clients-list__container">
+            <ul>
+              @if (projectsList.length > 0){
+                @for (project of projectsList; track project.id){
+                  <li>
+                    <div class="wrapper-project">
+                      <div class="project-content">
+                        <div class="border-left"></div>
+                        <ul>
+                          <li>
+                            <p class="quicksand-sm bolder-font">Obra</p>
+                            <p class="quicksand-x bolder-font">{{project.nome}}</p>
+                          </li>
+                          <li>
                             <p class="quicksand-sm bolder-font">
-                              <svg lucideCalendar class="icon-svg"></svg>Conclusão</p>
-                            <p class="quicksand-m">{{project.conclusao | date:'dd/MM/yyyy' }}</p>
-                          </div>
-                          <div class="area">
-                            <p class="quicksand-sm bolder-font">
-                              <svg lucideBuilding2 class="icon-svg"></svg>Área Construída</p>
-                            <p class="quicksand-m">{{project.area}} m²</p>
-                          </div>
-                        </li>
-                      </ul>
-                      @if (project.imagens?.length) {
-                        <div class="project-gallery gallery-preview">
-                          @for (
-                            img of project.imagens;
-                            track img.id;
-                            let isFirst = $first
-                            ) {
-                            <a
-                              [class.gallery-preview__main]="isFirst"
-                              [class.hidden-link]="!isFirst"
-                              [href]="img.imagem_url"
-                              [attr.data-pswp-width]="1600"
-                              [attr.data-pswp-height]="900"
-                            >
-                              @if (isFirst) {
-                                <div class="btn-click-img">
-                                  <svg lucideImage class="icon-svg"></svg>
+                              <svg lucideMapPin class="icon-svg"></svg>Endereço</p>
+                            <p class="quicksand-m">{{project.endereco}}</p>
+                          </li>
+                          <li class="last-detail">
+                            <div class="conclusao">
+                              <p class="quicksand-sm bolder-font">
+                                <svg lucideCalendar class="icon-svg"></svg>Conclusão</p>
+                              <p class="quicksand-m">{{project.conclusao | date:'dd/MM/yyyy' }}</p>
+                            </div>
+                            <div class="area">
+                              <p class="quicksand-sm bolder-font">
+                                <svg lucideBuilding2 class="icon-svg"></svg>Área Construída</p>
+                              <p class="quicksand-m">{{project.area}} m²</p>
+                            </div>
+                          </li>
+                        </ul>
+                        @if (project.imagens?.length) {
+                          <div class="project-gallery gallery-preview">
+                            @for (
+                              img of project.imagens;
+                              track img.id;
+                              let isFirst = $first
+                              ) {
+                              <a
+                                [class.gallery-preview__main]="isFirst"
+                                [class.hidden-link]="!isFirst"
+                                [href]="img.imagem_url"
+                                [attr.data-pswp-width]="1600"
+                                [attr.data-pswp-height]="900"
+                              >
+                                @if (isFirst) {
+                                  <div class="btn-click-img">
+                                    <svg lucideImage class="icon-svg"></svg>
 
-                                  <p class="quicksand-sm">
-                                    Clique aqui para ver mais imagens
-                                  </p>
-                                </div>
+                                    <p class="quicksand-sm">
+                                      Clique aqui para ver mais imagens
+                                    </p>
+                                  </div>
 
-                                <img
-                                  [src]="img.imagem_url"
-                                  [alt]="'Imagem da obra ' + project.nome"
-                                >
-                              }
-                            </a>
-                          }
-                        </div>
-                      } @else {
-                        <div class="empty-img-container">
-                          <div class="wrapper-empty-img-icon">
-                            <svg lucideImageOff></svg>
+                                  <img
+                                    [src]="img.imagem_url"
+                                    [alt]="'Imagem da obra ' + project.nome"
+                                  >
+                                }
+                              </a>
+                            }
                           </div>
+                        } @else {
+                          <div class="empty-img-container">
+                            <div class="wrapper-empty-img-icon">
+                              <svg lucideImageOff></svg>
+                            </div>
 
-                          <h2 class="gothic-m bold-font">
-                            Nenhuma imagem disponível
-                          </h2>
-                        </div>
-                      }
+                            <h2 class="gothic-m bold-font">
+                              Nenhuma imagem disponível
+                            </h2>
+                          </div>
+                        }
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
+                }
+              } @else{
+                <app-drx-empty-response
+                  [title]="'Nenhum projeto/obra encontrado'"
+                  [description]="'Este cliente ainda não possui projetos ou obras cadastrados para este serviço.'">
+                </app-drx-empty-response>
               }
-            } @else{
-              <app-drx-empty-response
-                [title]="'Nenhum projeto/obra encontrado'"
-                [description]="'Este cliente ainda não possui projetos ou obras cadastrados para este serviço.'">
-              </app-drx-empty-response>
-            }
-          </ul>
-        </div>
-      </article>
+            </ul>
+          </div>
+        </article>
+      }
     </div>
   </div>
 </section>

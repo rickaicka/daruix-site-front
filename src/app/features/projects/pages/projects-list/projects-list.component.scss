@@ -216,6 +216,11 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+
+                @include respond(tablet) {
+                  width: 100%;
+                  margin-bottom: 16px;
+                }
                 & .wrapper-empty-img-icon{
                   > svg{
 

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://127.0.0.1:8000/api',
-  URL_BASE: 'http://127.0.0.1:8000',
+  API_URL: 'https://api.daruix-engenharia.vps-kinghost.net/api',
+  URL_BASE: 'https://api.daruix-engenharia.vps-kinghost.net',
 };
 
 /*
